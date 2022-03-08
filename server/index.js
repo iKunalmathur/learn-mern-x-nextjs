@@ -1,3 +1,4 @@
+import bodyParser from "body-parser";
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
@@ -6,11 +7,17 @@ import postRoutes from "./routes/posts.js";
 const PORT = process.env.PORT || 5500;
 const db_user = process.env.DB_USERNAME;
 const db_password = process.env.DB_PASSWORD;
-const DB_CON_URL = `mongodb+srv://${db_user}:${db_password}@cluster0.fu2jd.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-
-console.log(process.env.PORT);
+const DB_CON_URL = `mongodb+srv://${db_user}:${db_password}@cluster0.fu2jd.gcp.mongodb.net/mern-with-next?retryWrites=true&w=majority`;
 
 const app = express();
+
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(
+  bodyParser.urlencoded({
+    // to support URL-encoded bodies
+    extended: true,
+  })
+);
 
 /* Root Route */
 app.get("/", function (req, res) {
