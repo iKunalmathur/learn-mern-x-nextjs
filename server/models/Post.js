@@ -8,6 +8,10 @@ const postSchema = mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+  likes: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Post = mongoose.model("Post", postSchema);

@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import postRoutes from "./routes/posts.js";
 
 const PORT = process.env.PORT || 5500;
@@ -18,6 +19,7 @@ app.use(
     extended: true,
   })
 );
+app.use(cors());
 
 /* Root Route */
 app.get("/", function (req, res) {
