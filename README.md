@@ -5,4 +5,5 @@
 - **R**eact/Next js
 - **N**ode js
 
-[![mern-blog-1.png](https://i.postimg.cc/g0g5yH04/mern-blog-1.png)](https://postimg.cc/cK8X0Yw8)
+[![mern-blog-3.png](https://i.postimg.cc/ht4jgpWm/mern-blog-3.png)](https://postimg.cc/RN89L10C)
+[![mern-blog-2.png](https://i.postimg.cc/x8HkJCtb/mern-blog-2.png)](https://postimg.cc/jnxqBsVs)
