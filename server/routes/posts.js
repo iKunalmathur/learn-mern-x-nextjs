@@ -14,6 +14,6 @@ router.post("/", createPost);
 router.put("/", updatePost);
 router.delete("/", deletePost);
 
-router.post("/like", likePost);
-router.post("/dislike", dislikePost);
+router.put("/like", likePost);
+router.put("/dislike", dislikePost);
 export default router;

@@ -1,66 +1,6 @@
 import Link from "next/link";
-import axios from "axios";
 import Layout from "../Components/Layout";
-
-/* Get Posts */
-async function getPosts(params) {
-  let config = {
-    method: "GET",
-    // url: `https://jsonplaceholder.typicode.com/posts?_limit=4`,
-    url: `http://localhost:5500/posts`,
-    header: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  };
-  const res = await axios(config);
-  return res.data;
-}
-
-/* like post */
-
-async function likePost(post_id) {
-  console.log(post_id);
-  let config = {
-    method: "post",
-    url: `http://localhost:5500/posts/like`,
-    header: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    data: {
-      post_id,
-    },
-  };
-  const res = await axios(config);
-
-  const { _id, likes } = res.data.data;
-  document.getElementById(post_id).innerText = likes;
-
-  return res.data;
-}
-
-/* dislike post */
-async function dislikePost(post_id) {
-  console.log(post_id);
-  let config = {
-    method: "post",
-    url: `http://localhost:5500/posts/dislike`,
-    header: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    data: {
-      post_id,
-    },
-  };
-  const res = await axios(config);
-
-  const { _id, likes } = res.data.data;
-  document.getElementById(post_id).innerText = likes;
-
-  return res.data;
-}
+import { dislikePost, getPosts, likePost } from "../services/posts";
 
 export async function getStaticProps(context) {
   const posts = await getPosts();
