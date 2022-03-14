@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import postRoutes from "./routes/posts.js";
+import commentRoutes from "./routes/comment.js";
 import rateLimit from "express-rate-limit";
 
 const PORT = process.env.PORT || 5500;
@@ -40,6 +41,7 @@ app.get("/", function (req, res) {
 
 /* Posts Routes */
 app.use("/posts", postRoutes);
+app.use("/comments", commentRoutes);
 
 /* mongodb connection */
 mongoose

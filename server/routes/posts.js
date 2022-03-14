@@ -3,6 +3,8 @@ import {
   createPost,
   deletePost,
   dislikePost,
+  getPostById,
+  getPostBySlug,
   getPosts,
   likePost,
   updatePost,
@@ -10,6 +12,8 @@ import {
 const router = new Router();
 
 router.get("/", getPosts);
+router.get("/slug", getPostBySlug);
+router.get("/id", getPostById);
 router.post("/", createPost);
 router.put("/", updatePost);
 router.delete("/", deletePost);

@@ -19,6 +19,73 @@ export async function getPosts() {
   return res.data;
 }
 
+/* Get Post By Slug */
+export async function getPostBySlug(slug) {
+  let config = {
+    method: "GET",
+    url: `${API_URL}/posts/slug`,
+    ...globalConfig,
+    params: {
+      slug,
+    },
+  };
+  const res = await axios(config);
+  return res.data;
+}
+
+/* Get Post By ID */
+export async function getPostById(post_id) {
+  let config = {
+    method: "GET",
+    url: `${API_URL}/posts/id`,
+    ...globalConfig,
+    params: {
+      post_id,
+    },
+  };
+
+  try {
+    const res = await axios(config);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+/* Create Post*/
+export async function createPost(data) {
+  let config = {
+    method: "POST",
+    url: `${API_URL}/posts`,
+    ...globalConfig,
+    data,
+  };
+
+  try {
+    const res = await axios(config);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+/* Update Post*/
+export async function updatePost(data) {
+  let config = {
+    method: "PUT",
+    url: `${API_URL}/posts`,
+    ...globalConfig,
+    data,
+  };
+
+  try {
+    const res = await axios(config);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 /* like post */
 
 export async function likePost(post_id) {

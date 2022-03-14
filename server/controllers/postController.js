@@ -10,6 +10,28 @@ export const getPosts = async (req, res) => {
   }
 };
 
+/* get a post by slug */
+export const getPostBySlug = async (req, res) => {
+  const { slug } = req.query;
+  try {
+    const post = await Post.findOne({ slug: slug });
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+/* get a post by id */
+export const getPostById = async (req, res) => {
+  const { post_id } = req.query;
+  try {
+    const post = await Post.findById(post_id);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 /* create new post */
 export const createPost = async (req, res) => {
   const body = req.body;
